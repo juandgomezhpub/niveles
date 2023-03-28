@@ -1,0 +1,746 @@
+{
+	"info": {
+		"_postman_id": "5bd7dbd6-0164-4e87-a106-9c633ee83ab0",
+		"name": "endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LOGIN",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ambiente",
+						"value": "{{ambiente}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_universidad",
+							"value": "1445",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "juandgomezh.pub@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "abc123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{url}}/v1/user/login",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Programas",
+			"item": [
+				{
+					"name": "obtener programas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "ambiente",
+								"value": "{{ambiente}}",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1/facultades/programas?facultad=2",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"facultades",
+								"programas"
+							],
+							"query": [
+								{
+									"key": "facultad",
+									"value": "2"
+								},
+								{
+									"key": "seach",
+									"value": "nuevo",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtener promociones cerradas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "ambiente",
+								"value": "{{ambiente}}",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1/programas/promociones_cerradas?id_programa=126",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"programas",
+								"promociones_cerradas"
+							],
+							"query": [
+								{
+									"key": "id_programa",
+									"value": "126"
+								},
+								{
+									"key": "seach",
+									"value": "nuevo",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtener acuerdos líder",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "ambiente",
+								"value": "{{ambiente}}",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1/programas/acuerdos_lider?id_programa=124",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"programas",
+								"acuerdos_lider"
+							],
+							"query": [
+								{
+									"key": "seach",
+									"value": "nuevo",
+									"disabled": true
+								},
+								{
+									"key": "id_programa",
+									"value": "124"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtener continua avance",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "ambiente",
+								"value": "{{ambiente}}",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1/programas/continuar_avance",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"programas",
+								"continuar_avance"
+							],
+							"query": [
+								{
+									"key": "seach",
+									"value": "nuevo",
+									"disabled": true
+								},
+								{
+									"key": "id_facultad",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "inscripciones",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "ambiente",
+								"value": "dev",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_programa",
+									"value": "119",
+									"type": "text"
+								},
+								{
+									"key": "ubicacion",
+									"value": "America/Costa_Rica",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{url}}/v1/programas/inscripcion",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"programas",
+								"inscripcion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtener encabezados",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "ambiente",
+								"value": "{{ambiente}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1/encabezados_programas/obtener?id_facultad=34&id_programa=132",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"encabezados_programas",
+								"obtener"
+							],
+							"query": [
+								{
+									"key": "id_facultad",
+									"value": "34"
+								},
+								{
+									"key": "id_programa",
+									"value": "132"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "obtener_encabezados",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "ambiente",
+										"value": "{{ambiente}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{url}}/v1/encabezados_programas/obtener?id_facultad=2&id_programa=2",
+									"protocol": "https",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v1",
+										"encabezados_programas",
+										"obtener"
+									],
+									"query": [
+										{
+											"key": "id_facultad",
+											"value": "2"
+										},
+										{
+											"key": "id_programa",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Niveles",
+			"item": [
+				{
+					"name": "obtener niveles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "ambiente",
+								"value": "{{ambiente}}",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1/niveles/listar?id_programa=119",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"niveles",
+								"listar"
+							],
+							"query": [
+								{
+									"key": "seach",
+									"value": "nuevo",
+									"disabled": true
+								},
+								{
+									"key": "id_programa",
+									"value": "119"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtener progreso",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "ambiente",
+								"value": "{{ambiente}}",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1/niveles/progreso?id_programa=90",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"niveles",
+								"progreso"
+							],
+							"query": [
+								{
+									"key": "id_programa",
+									"value": "90"
+								},
+								{
+									"key": "seach",
+									"value": "nuevo",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtener cursos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "ambiente",
+								"value": "{{ambiente}}",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1/niveles/cursos?id_programa=118",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"niveles",
+								"cursos"
+							],
+							"query": [
+								{
+									"key": "seach",
+									"value": "nuevo",
+									"disabled": true
+								},
+								{
+									"key": "id_programa",
+									"value": "118"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtener acuerdos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "ambiente",
+								"value": "{{ambiente}}",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1/niveles/acuerdos?id_programa=129",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"niveles",
+								"acuerdos"
+							],
+							"query": [
+								{
+									"key": "id_programa",
+									"value": "129"
+								},
+								{
+									"key": "seach",
+									"value": "nuevo",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtener promocion",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "ambiente",
+								"value": "{{ambiente}}",
+								"type": "default"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1/niveles/promo/actual?tipo=&facultad=2&programa=119&id_programa=126",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"niveles",
+								"promo",
+								"actual"
+							],
+							"query": [
+								{
+									"key": "tipo",
+									"value": ""
+								},
+								{
+									"key": "facultad",
+									"value": "2"
+								},
+								{
+									"key": "programa",
+									"value": "119"
+								},
+								{
+									"key": "id_programa",
+									"value": "126"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtener encabezados",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "ambiente",
+								"value": "{{ambiente}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1/encabezados_programas/obtener?id_facultad=2&id_programa=2",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"encabezados_programas",
+								"obtener"
+							],
+							"query": [
+								{
+									"key": "id_facultad",
+									"value": "2"
+								},
+								{
+									"key": "id_programa",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "obtener_encabezados",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "ambiente",
+										"value": "{{ambiente}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{url}}/v1/encabezados_programas/obtener?id_facultad=2&id_programa=2",
+									"protocol": "https",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v1",
+										"encabezados_programas",
+										"obtener"
+									],
+									"query": [
+										{
+											"key": "id_facultad",
+											"value": "2"
+										},
+										{
+											"key": "id_programa",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxOTE1IiwianRpIjoiN2U0ODk4ZjJjYzkwZGJjM2I5NjNjMGIxN2JjMjI0MWVkZDI3MmU0ZGY4ZmM1YzRjNDhjOWQ1ZjI0YjBlZjQ2ZTdjY2E2Yzc4YWJjOWI5ODIiLCJpYXQiOjE2Nzk2OTg5MjcuODU5NzQxLCJuYmYiOjE2Nzk2OTg5MjcuODU5NzQ0LCJleHAiOjE2ODgzMzg5MjcuODQ3MjAxLCJzdWIiOiIxMDc0Mzk3Iiwic2NvcGVzIjpbXX0.fbczJaW7RfTKPDd29IzTmThM55wrrRbT28dewWoY-vMVzXzAjOfvZ6zDmzwqvcHOOWtxQMRa0gTY54yUXCHjmXJo0uKZwncT1ANcMIHfcSpjzJclaPxCbLfTtZI-242-gLNpk8zcH0gbOOdMf5QSrzg9jYsv2Eou2DLzdq66AEcJ82zo9I2veKoLJYHqDp0VlUz7I9M1e5iO9ngGZrw1yEnTOlZTix6COq8bnNTnq1bon8PwoUjcsXHSgE1EVLIJqfj_J62YHN2wUSJerjKPw_uzGGqvR9uE5MRlKrMGs6_AJTH1iUVh1vZ96Ccf6roS0oC7mS4L6pcvKus9hURRviRlFTKqxlppMyyD8bwDQFrFkwLRdodTnmKrihBj7ag95YtiqVP2DBJtdoe9hGyqiUG_PCttFBcyoBRB4mz6MpAt7XiqagdZvRGEg6iLJY9poaZa9FfyoPHDJ2G59trOaZ_a_x0kQniSyAZM8qlfXxPVYWCB1tJVgkvoz4wPNvE0pXtdLV9tFmSfAn7Y7GN9AZtjKKMBSvZHDhjnepb0Yp_FkqPijapY6J94uekiSrGkMeAjfCteaedekZ5ECGMBOKJltyp787OharCpGREfOcRs_T5bB1fybmXe6Q0YnHJPlkbJu3HQ-xlopd49wjmGfSa7hvCBmGeggLGB3az9asY",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ambiente",
+			"value": "dev",
+			"type": "string"
+		},
+		{
+			"key": "url",
+			"value": "territoriumapi.tests.mx/api",
+			"type": "string"
+		},
+		{
+			"key": "url",
+			"value": "territoriumapiv3.test/api",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "url",
+			"value": "territoriumapi.territorio.la",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "user",
+			"value": "juandgomezh.pub@gmail.com",
+			"type": "default"
+		},
+		{
+			"key": "user",
+			"value": "juandgomezh@gmail.com",
+			"type": "default",
+			"disabled": true
+		}
+	]
+}
